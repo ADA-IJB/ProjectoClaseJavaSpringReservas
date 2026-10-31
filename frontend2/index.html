@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reservas de aulas</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Reservas de aulas</h1>
+    <nav>
+      <button class="tab active" data-tab="reservas">Reservas</button>
+      <button class="tab" data-tab="aulas">Aulas</button>
+      <button class="tab" data-tab="profesores">Profesores</button>
+      <button class="tab" data-tab="franjas">Franjas horarias</button>
+    </nav>
+  </header>
+
+  <!-- Mensaje de éxito o de error (lo rellena app.js) -->
+  <div id="mensaje" class="mensaje oculto" role="status"></div>
+
+  <main>
+    <!-- RESERVAS -->
+    <section id="reservas" class="panel">
+      <div class="barra">
+        <h2>Reservas</h2>
+      </div>
+
+      <form id="form-reserva" class="inline">
+        <h3>Nueva reserva</h3>
+        <label>Fecha <input type="date" name="fechaReserva" required></label>
+        <label>Aula <select name="aula" required></select></label>
+        <label>Profesor <select name="profesor" required></select></label>
+        <label>Franja <select name="franja" required></select></label>
+        <button type="submit" class="primario">Reservar</button>
+      </form>
+
+      <div id="tabla-reservas"></div>
+    </section>
+
+    <!-- AULAS -->
+    <section id="aulas" class="panel oculto">
+      <div class="barra">
+        <h2>Aulas</h2>
+        <button id="nuevo-aulas" class="primario">Nueva aula</button>
+      </div>
+
+      <form id="form-consulta" class="inline">
+        <h3>Consultar un aula</h3>
+        <label>Filtro
+          <select name="filtro">
+            <option value="">Sin filtro</option>
+            <option value="ordenadores-si">Con ordenadores</option>
+            <option value="ordenadores-no">Sin ordenadores</option>
+            <option value="capacidad">Capacidad superior a...</option>
+          </select>
+        </label>
+        <label id="etiqueta-capacidad" class="oculto">Alumnos <input type="number" name="capacidad" min="0"></label>
+        <button type="submit" class="primario">Consultar</button>
+      </form>
+      <p id="resultado-consulta" class="resultado oculto"></p>
+
+      <div id="tabla-aulas"></div>
+    </section>
+
+    <!-- PROFESORES -->
+    <section id="profesores" class="panel oculto">
+      <div class="barra">
+        <h2>Profesores</h2>
+        <button id="nuevo-profesores" class="primario">Nuevo profesor</button>
+      </div>
+      <div id="tabla-profesores"></div>
+    </section>
+
+    <!-- FRANJAS HORARIAS -->
+    <section id="franjas" class="panel oculto">
+      <div class="barra">
+        <h2>Franjas horarias</h2>
+        <button id="nuevo-franjas" class="primario">Nueva franja</button>
+      </div>
+      <div id="tabla-franjas"></div>
+    </section>
+  </main>
+
+  <!-- Diálogo genérico para crear y editar aulas, profesores y franjas -->
+  <dialog id="dialogo">
+    <form id="form-dialogo">
+      <h3 id="dialogo-titulo"></h3>
+      <div id="dialogo-campos"></div>
+      <div class="acciones">
+        <button type="button" id="dialogo-cancelar">Cancelar</button>
+        <button type="submit" class="primario">Guardar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

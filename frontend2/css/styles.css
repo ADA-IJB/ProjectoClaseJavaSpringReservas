@@ -1,0 +1,143 @@
+:root {
+  --fondo: #f4f6f8;
+  --tarjeta: #ffffff;
+  --texto: #1f2933;
+  --suave: #667085;
+  --borde: #d9dee5;
+  --acento: #0f766e;
+  --acento-oscuro: #0b5a54;
+  --peligro: #b42318;
+  --ok-fondo: #e3f5ee;
+  --error-fondo: #fde8e6;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.4;
+}
+
+header {
+  background: var(--acento);
+  color: #fff;
+  padding: 1rem 1.5rem 0;
+}
+header h1 { margin: 0 0 0.75rem; font-size: 1.4rem; }
+
+nav { display: flex; gap: 0.25rem; flex-wrap: wrap; }
+.tab {
+  background: transparent;
+  color: #d6f0ed;
+  border: none;
+  border-radius: 6px 6px 0 0;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.tab:hover { background: rgba(255, 255, 255, 0.15); }
+.tab.active { background: var(--fondo); color: var(--acento-oscuro); font-weight: 600; }
+
+main { max-width: 1000px; margin: 1.5rem auto; padding: 0 1rem; }
+
+.panel { background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 8px; padding: 1.25rem; }
+.oculto { display: none !important; }
+
+.barra { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.barra h2 { margin: 0; font-size: 1.2rem; }
+
+/* Mensajes */
+.mensaje {
+  max-width: 1000px;
+  margin: 1rem auto 0;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  background: var(--ok-fondo);
+  border: 1px solid #9ad7c1;
+}
+.mensaje.error { background: var(--error-fondo); border-color: #f0a8a1; color: var(--peligro); }
+
+/* Formularios */
+form.inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-end;
+  background: var(--fondo);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+form.inline h3 { flex-basis: 100%; margin: 0; font-size: 1rem; }
+
+label { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.85rem; color: var(--suave); }
+label.check { flex-direction: row; align-items: center; gap: 0.5rem; color: var(--texto); }
+
+input, select {
+  font: inherit;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--texto);
+  min-width: 150px;
+}
+input[type="checkbox"] { min-width: 0; width: 1.1rem; height: 1.1rem; }
+input:focus, select:focus { outline: 2px solid var(--acento); outline-offset: 1px; }
+
+/* Botones */
+button { font: inherit; cursor: pointer; }
+button.primario, .acciones button {
+  background: var(--acento);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+}
+button.primario:hover { background: var(--acento-oscuro); }
+
+td button {
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.85rem;
+}
+td button.peligro { color: var(--peligro); border-color: #f0a8a1; }
+td button:hover { background: var(--fondo); }
+
+/* Tablas */
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+th, td { text-align: left; padding: 0.55rem 0.6rem; border-bottom: 1px solid var(--borde); }
+th { color: var(--suave); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+td.acciones-fila { white-space: nowrap; text-align: right; }
+td.acciones-fila button + button { margin-left: 0.35rem; }
+.vacio { color: var(--suave); padding: 1rem 0; }
+
+.resultado {
+  background: var(--fondo);
+  border-left: 4px solid var(--acento);
+  padding: 0.6rem 0.9rem;
+  margin: 0 0 1rem;
+  border-radius: 0 6px 6px 0;
+}
+.resultado.error { border-left-color: var(--peligro); color: var(--peligro); }
+
+/* Diálogo */
+dialog { border: 1px solid var(--borde); border-radius: 10px; padding: 1.25rem; min-width: 320px; }
+dialog::backdrop { background: rgba(0, 0, 0, 0.35); }
+dialog h3 { margin-top: 0; }
+#dialogo-campos { display: flex; flex-direction: column; gap: 0.75rem; }
+.acciones { display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 1.25rem; }
+.acciones button[type="button"] { background: #fff; color: var(--texto); border: 1px solid var(--borde); }
+
+@media (max-width: 640px) {
+  header { padding: 0.8rem 0.8rem 0; }
+  .panel { padding: 0.8rem; overflow-x: auto; }
+  input, select { min-width: 0; width: 100%; }
+  form.inline label { flex: 1 1 100%; }
+}

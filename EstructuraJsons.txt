@@ -1,0 +1,47 @@
+{
+    "numeroClase": "5",
+    "capacidad": 8,
+    "tieneOrdenadores": true
+}
+
+{
+    "horaInicio": "10:31:31",
+    "horaFin": "12:31:31"
+}
+
+{
+    "nombre": "ADSWD",
+    "apellidos": "AFFAAF",
+    "dni": "14445678X",
+    "fechaNacimiento": "2001-10-10",
+    "sueldo": 1000.10
+}
+
+{
+    "fecha": "2026-10-10"
+}
+
+
+
+
+
+
+
+
+
+{
+    "fecha": "2026-11-10",
+    "franjaHoraria": {
+            "id": 1,
+            "horaInicio": "20:05:00",
+            "horaFin": "21:05:00"
+        }
+}
+{
+    "fecha": "2026-11-10",
+    "franjaHoraria": {
+            "id": 2,
+            "horaInicio": "18:05:00",
+            "horaFin": "23:05:00"
+        }
+}
